@@ -7,4 +7,4 @@ __pycache__/
 venv/
 *.pkl - meaning all pickle files
 
-they are included at the first commit. but no more pickle files will be uploaded in the repo.
+the pickle files are included at the first commit. but no more pickle files will be uploaded in the repo.
