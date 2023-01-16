@@ -1,6 +1,6 @@
 # Forex_Algo
 
-Files that are ignored:
+Files and folders that are ignored:
 exploration/
 constants/
 __pycache__/
