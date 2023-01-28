@@ -1,16 +1,12 @@
 from api.oanda_api import OandaApi
 from infrastructure.instrument_collection import instrumentCollection
 from simulation.ma_cross import run_ma_sim
+from dateutil import parser
+from infrastructure.collect_data import run_collection
 
 
 if __name__ == "__main__":
-    api = OandaApi()
-
-    # data = api.get_account_summary()
-    # print(data)
-
-    # instrumentCollection.CreateFile(api.get_account_instruments(), "./data")
+    # api = OandaApi()
     # instrumentCollection.LoadInstruments("./data")
-    # instrumentCollection.PrintInstruments()
-
-    run_ma_sim(curr_list=["NZD", "CAD", "USD", "JPY", "EUR"])
+    # run_collection(instrumentCollection, api)
+    run_ma_sim()
