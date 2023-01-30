@@ -138,7 +138,7 @@ def analyse_pair(instrument, granularity, ma_long, ma_short, filepath):
 
 
 def run_ma_sim(
-    curr_list=["CAD", "JPY", "GBP", "NZD"],
+    curr_list=["CAD", "JPY", "GBP", "NZD", "USD"],
     granularity=["H1"],
     ma_long=[20, 40],
     ma_short=[10],
