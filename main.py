@@ -6,10 +6,11 @@ from simulation.ma_cross import run_ma_sim
 from simulation.ema_macd_mp import run_ema_macd
 from dateutil import parser
 from infrastructure.collect_data import run_collection
+from stream_example.streamer import run_streamer
 
 
 if __name__ == "__main__":
-    # api = OandaApi()
+    api = OandaApi()
 
     # to load instruments from "data"folder
     instrumentCollection.LoadInstruments("./data")
@@ -19,4 +20,6 @@ if __name__ == "__main__":
 
     # run_ma_sim()
     # run_ema_macd(instrumentCollection)
-    run_ema_macd(instrumentCollection)
+    # run_ema_macd(instrumentCollection)
+
+    run_streamer()

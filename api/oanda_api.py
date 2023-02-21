@@ -12,12 +12,7 @@ from models.open_trade import OpenTrade
 class OandaApi:
     def __init__(self):
         self.session = requests.Session()
-        self.session.headers.update(
-            {
-                "Authorization": f"Bearer {defs.API_KEY}",
-                "Content-Type": "application/json",
-            }
-        )
+        self.session.headers.update(defs.SECURE_HEADER)
 
     def make_request(
         self, url, verb="get", code=200, params=None, data=None, headers=None
@@ -203,10 +198,15 @@ class OandaApi:
     def get_prices(self, instruments_list):
         url = f"accounts/{defs.ACCOUNT_ID}/pricing"
 
-        params = dict(instruments=", ".join(instruments_list))
+        params = dict(
+            instruments=",".join(instruments_list), includeHomeConversions=True
+        )
+
         ok, response = self.make_request(url, params=params)
 
-        if ok == True and "prices" in response:
-            return [ApiPrice(x) for x in response["prices"]]
+        if ok == True and "prices" in response and "homeConversions" in response:
+            return [
+                ApiPrice(x, response["homeConversions"]) for x in response["prices"]
+            ]
 
         return None
