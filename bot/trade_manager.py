@@ -44,6 +44,7 @@ def place_trade(
         trade_decision.tp,
     )
 
+    # if trade_id is None:
     if trade_id is not None:
         log_error(f"ERROR placing {trade_decision}")
         log_message(f"ERROR placing {trade_decision}", trade_decision.pair)
